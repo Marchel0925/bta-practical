@@ -11,7 +11,7 @@ The project contains three text files. The files are located under **src/main/re
 Each text file contains a different character amount:
 - _**text_0.txt**_ -> 1000 chars;
 - _**text_1.txt**_ -> 1200 chars;
-- _**text_3.txt**_ -> 1400 chars;
+- _**text_2.txt**_ -> 1400 chars;
 
 _All text was generated using **Blind Text Generator** tool_
 [here](https://www.blindtextgenerator.com/lorem-ipsum).
