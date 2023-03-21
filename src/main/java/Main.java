@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Main {
@@ -13,9 +14,15 @@ public class Main {
             } else {
                 url = "src/main/resources/text_" + args[0] + ".txt";
             }
+        } else {
+            System.out.print("Not supported. Returning result for default value: ");
+            System.out.println(url);
         }
 
-        FrequencyService frequencyService = new FrequencyService(Paths.get(url));
+        Path path = Paths.get(url);
+
+        System.out.println("Output for file: \"" + path.getFileName() + "\"");
+        FrequencyService frequencyService = new FrequencyService(path);
         frequencyService.outputFrequencyMap();
     }
 }
