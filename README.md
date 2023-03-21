@@ -30,6 +30,9 @@ During testing, we will use all three files but for build we will only use **tex
 - Run the app with a file from the provided in **resources** (default: 0):
   - **mvn exec:java -Dexec.mainClass=Main -Dexec.args=<file_index (0,1,2)>**
 
+- Run the app with a custom file from system (NEED TO SPECIFY ABSOLUTE PATH):
+    - **mvn exec:java -Dexec.mainClass=Main -Dexec.args=<path_to_file>**
+
 Or run the packaged version:
 1. Move to root of the project
 2. Open the terminal

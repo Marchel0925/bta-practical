@@ -7,20 +7,18 @@ import java.util.Scanner;
 
 // Service for creating
 public class FrequencyService {
-    private String pathToFile;
+    private Path path;
 
     private Map<Character, Integer> frequencyMap;
 
-    public FrequencyService(String textFileName) throws IOException {
-        this.pathToFile = "src/main/resources/" + textFileName + ".txt";
+    // Dependency injection
+    public FrequencyService(Path path) throws IOException {
+        this.path = path;
         getTextFrequency();
     }
 
-
     private void getTextFrequency() throws IOException {
         this.frequencyMap = new HashMap<>();
-
-        Path path = Paths.get(pathToFile);
         Scanner scanner = new Scanner(path);
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
@@ -47,17 +45,17 @@ public class FrequencyService {
         }
     }
 
-    public void updatePath(String textFile) throws IOException {
-        this.pathToFile = "src/main/resources/" + textFile + ".txt";
+    public void updatePathFromFileName(String fileName) throws IOException {
+        this.path = Paths.get("src/main/resources/" + fileName + ".txt");
         getTextFrequency();
     }
 
-    public String getPathToFile() {
-        return pathToFile;
+    public Map<Character, Integer> getFrequencyMap() {
+        return frequencyMap;
     }
 
 
-    public Map<Character, Integer> getFrequencyMap() {
-        return frequencyMap;
+    public Path getPath() {
+        return path;
     }
 }

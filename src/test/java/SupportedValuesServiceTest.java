@@ -30,4 +30,12 @@ public class SupportedValuesServiceTest {
             Assert.assertFalse(isSupported);
         }
     }
+
+    @Test
+    public void givenSupportedFileUrl_whenCallingIsSupported_thenReturnTrue() {
+        final String url = "src/main/resources/text_2.txt";
+        boolean isSupported = supportedValuesService.isSupported(url);
+        Assert.assertTrue(isSupported);
+
+    }
 }

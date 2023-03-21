@@ -3,7 +3,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Map;
@@ -16,9 +15,8 @@ public class FrequencyServiceTest {
 
     @Before
     public void setUp() throws IOException {
-        String textFile = "text_0";
-        this.frequencyService = new FrequencyService(textFile);
-        assertSetUp(textFile);
+        this.frequencyService = new FrequencyService(Paths.get("src/main/resources/text_0.txt"));
+        Assert.assertNotNull(frequencyService.getFrequencyMap());
     }
 
     @Test
@@ -45,32 +43,22 @@ public class FrequencyServiceTest {
 
     @Test
     public void givenEachFrequencyMaps_whenComparedToOtherFrequencyMaps_thenEachValueShouldNotBeEqualToPrevious() throws IOException {
-        String previousPath = frequencyService.getPathToFile();
         Map<Character, Integer> previousMap = frequencyService.getFrequencyMap();
         for (int i = 2; i <= 2; i ++) {
             String textFile = "text_" + i;
-            frequencyService.updatePath(textFile);
+            frequencyService.updatePathFromFileName(textFile);
             // Assert that path has been changed and maps don't match
-            Assert.assertNotEquals(previousPath, frequencyService.getPathToFile());
             Assert.assertNotEquals(previousMap, frequencyService.getFrequencyMap());
 
-
-            previousPath = frequencyService.getPathToFile();
             previousMap = frequencyService.getFrequencyMap();
 
         }
     }
 
-    private void assertSetUp(String textFile) {
-        Assert.assertNotNull(frequencyService.getFrequencyMap());
-        Assert.assertEquals("src/main/resources/" + textFile + ".txt", frequencyService.getPathToFile());
-    }
-
     private Integer getDistinctSize() throws IOException {
         Set<Character> distinctChars = new HashSet<>();
 
-        Path path = Paths.get(this.frequencyService.getPathToFile());
-        Scanner scanner = new Scanner(path);
+        Scanner scanner = new Scanner(frequencyService.getPath());
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
             char[] lineChars = line.toCharArray();
@@ -86,8 +74,7 @@ public class FrequencyServiceTest {
 
     private Integer getFullFileLength() throws IOException {
         int length = 0;
-        Path path = Paths.get(this.frequencyService.getPathToFile());
-        Scanner scanner = new Scanner(path);
+        Scanner scanner = new Scanner(frequencyService.getPath());
         while(scanner.hasNextLine()){
             length += scanner.nextLine().length();
 
