@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="SupportedValuesServiceTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="SupportedValuesServiceTest" time="0.001" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="17.0.5+9-LTS-191"/>
@@ -60,6 +60,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="SupportedValuesServiceTest" name="givenArrayOfSupportedValues_whenCallingIsSupported_thenReturnTrue" time="0.001"/>
+  <testcase classname="SupportedValuesServiceTest" name="givenSupportedFileUrl_whenCallingIsSupported_thenReturnTrue" time="0.001"/>
+  <testcase classname="SupportedValuesServiceTest" name="givenArrayOfSupportedValues_whenCallingIsSupported_thenReturnTrue" time="0"/>
   <testcase classname="SupportedValuesServiceTest" name="givenArrayOfUnsupportedValues_whenCallingIsSupported_thenReturnFalse" time="0"/>
 </testsuite>
