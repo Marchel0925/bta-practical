@@ -12,8 +12,8 @@ public class FrequencyService {
     private Map<Character, Integer> frequencyMap;
 
     // Dependency injection helps ensure better and easier testing
-    public FrequencyService(String textFile) throws IOException {
-        this.pathToFile = "src/main/resources/" + textFile + ".txt";
+    public FrequencyService(String textFileName) throws IOException {
+        this.pathToFile = "src/main/resources/" + textFileName + ".txt";
         getTextFrequency();
     }
 

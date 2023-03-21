@@ -59,5 +59,3 @@ Or run the packaged version:
 #### Marcis Andersons
 ##### Github Nr1: https://github.com/NamedUnknown
 ##### Github Nr2: https://github.com/Marchel0925
-
-

@@ -13,8 +13,5 @@ public class Main {
 
         FrequencyService frequencyService = new FrequencyService("text_" + fileIndex );
         frequencyService.outputFrequencyMap();
-
-        frequencyService.updatePath("text_" + 1);
-        frequencyService.outputFrequencyMap();
     }
 }
